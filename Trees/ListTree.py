@@ -18,7 +18,6 @@ def list_to_tree(lst):
     while deq and idx < tree_len:
         node = deq.popleft()
         if validated_lst[idx]:
-            print(node)
             left_child = validated_lst[idx]
             node.left = TreeNode(left_child)
             deq.append(node.left)
