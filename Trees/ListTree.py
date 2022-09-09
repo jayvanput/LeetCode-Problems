@@ -1,5 +1,4 @@
 from collections import deque
-
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -19,14 +18,18 @@ def list_to_tree(lst):
         node = deq.popleft()
         if str(validated_lst[idx]):
             left_child = validated_lst[idx]
-            node.left = TreeNode(left_child)
-            deq.append(node.left)
+            if left_child:
+                node.left = TreeNode(left_child)
+                deq.append(node.left)
         
         if not idx+1 == tree_len and validated_lst[idx+1]:
             right_child = validated_lst[idx+1]
-            node.right = TreeNode(right_child)
-            deq.append(node.right)
+            if right_child:
+                node.right = TreeNode(right_child)
+                deq.append(node.right)
         
         idx += 2
         
     return root
+if __name__ == "__main__":
+    pass
